@@ -11,19 +11,14 @@ app.config(function($routeProvider) {
 
     }).when("/messages", {
         templateUrl: "app/messages/messages.html",
-        controller: "recipeGalleryCtrl"
     }).when("/tenants" , {
         templateUrl: "app/tenants/tenants.html",
-        controller: "newRecipeCtrl"
     }).when("/votes" , {
         templateUrl: "app/votes/votes.html",
-        controller: "newRecipeCtrl"
     }).when("/issues" , {
         templateUrl: "app/issues/issues.html",
-        controller: "newRecipeCtrl"
     }).when("/dashboard" , {
         templateUrl: "app/dashboard/dashboard.html",
-        controller: "newRecipeCtrl"
     }).when("/recipe/:id" , {
 
     })
