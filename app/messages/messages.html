@@ -1,2 +1,60 @@
 <navbar-apt-mng></navbar-apt-mng>
 <h1>messages</h1>
+
+<div class="container" ng-controller="messagesCtrl">
+  <form class="my-3">
+    <div class="form-inline">
+      {{test}}
+      <div class="form-group ml-3">
+        <label for="inp1">Filter by text:&nbsp</label>
+        <input type="text" class="form-control" placeholder="Filter by text in message" ng-model="searchText">
+      </div>
+      <div class="form-group ml-5">
+        <label for="sel1">Filter by Priority:&nbsp</label>
+        <select class="form-control" id="selP1" name="selP1" ng-model="selP1">
+          <option>none</option>
+          <option value='important'>Important</option>
+          <option value='info'>Info</option>
+        </select>
+      </div>
+      <div class="form-group ml-5">
+        <label for="inp1">Sort by:&nbsp</label>
+        <input type="radio" ng-model="rdVar" value="date">Date
+        <input type="radio" ng-model="rdVar" value="priority">Priority
+      </div>
+
+    </div>
+    <!-- </form> -->
+
+
+
+    <!-- <form action="/action_page.php"> -->
+    <div class="form-group">
+      <!-- <br> -->
+    </div>
+  </form>
+  <br>
+
+
+
+  <p></p>
+  <p></p>
+  <p></p>
+  <div class="card-deck">
+    <div class="card " ng-repeat="actor in actors | filter : filterName | orderBy : sellist1 ">
+      <!-- <a href={{actor.imdbURL}} target="_blank"> -->
+      <div ng-model="cardSel" ng-class="{'imgClassB' : actor === selectedActor}">
+        <img class="card-img-top" ng-src={{actor.imgURL}} alt="Card image" style="width:100%" ng-click="cardClick(actor)">
+      </div>
+      <!-- </a> -->
+      <div class="card-body text-center">
+      </div>
+      <a href={{actor.imdbURL}} target="_blank">
+        <h4 class="card-title">{{actor.fname}} {{actor.lname}}</h4>
+      </a>
+      <p class="card-text">Birthday: {{actor.birthday}}</p>
+      <p></p>
+    </div>
+  </div>
+  <p></p>
+</div>

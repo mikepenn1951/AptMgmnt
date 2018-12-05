@@ -11,6 +11,7 @@ app.config(function($routeProvider) {
 
     }).when("/messages", {
         templateUrl: "app/messages/messages.html",
+        controller: "messagesCtrl"
     }).when("/tenants" , {
         templateUrl: "app/tenants/tenants.html",
     }).when("/votes" , {
