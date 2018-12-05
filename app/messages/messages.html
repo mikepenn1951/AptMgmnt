@@ -25,7 +25,7 @@
 
     </div>
     <div class="form-group ml-100">
-      <a href="text" class = "ml-100" data-toggle="modal" data-target="#myModal">
+      <a href="text" class="ml-100" data-toggle="modal" data-target="#myModal">
         new message
       </a>
     </div>
@@ -39,53 +39,89 @@
     </div>
   </form>
 
-    <!-- The Modal -->
-    <div class="modal" id="myModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-          
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title">New Message</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            
-            <!-- Modal body -->
-            <div class="modal-body">
-              Modal body..
-            </div>
-            
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn " data-dismiss="modal">Save</button>
-                <button type="button" class="btn " data-dismiss="modal">Discard</button>
-            </div>
-            
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">New Message</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        
+        <div class="modal-body">  <!-- Begin of Modal body -->
+          <div class="container mt-5">
+            <form>
+              <div class="form-group row">
+                <label for="tile" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="title" ng-model="title">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="details" class="col-sm-2 col-form-label">Details</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="details" ng-model="details">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="priority" class="col-sm-2 col-form-label">Priority</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="priority" name="priority" ng-model="priority">
+                    <option>none</option>
+                    <option value='important'>Important</option>
+                    <option value='info'>Info</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="image" class="col-sm-2 col-form-label">Image</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="image" ng-model="image" />
+                </div>
+              </div>
+              <!-- <div class="form-group row">
+                <div class="col-sm-12">
+                  <button type="button" class="btn btn-block btn-lg btn-primary" ng-click="createRecipe()">Create
+                    Recipe</button>
+                </div>
+              </div> -->
+            </form>
+          </div> <!-- End of Modal body -->
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn " data-dismiss="modal">Save</button>
+            <button type="button" class="btn " data-dismiss="modal">Discard</button>
           </div>
+
         </div>
       </div>
-    
-
-
-
-  <p></p>
-  <p></p>
-  <p></p>
-  <div class="card-deck">
-    <div class="card " ng-repeat="actor in actors | filter : filterName | orderBy : sellist1 ">
-      <!-- <a href={{actor.imdbURL}} target="_blank"> -->
-      <div ng-model="cardSel" ng-class="{'imgClassB' : actor === selectedActor}">
-        <img class="card-img-top" ng-src={{actor.imgURL}} alt="Card image" style="width:100%" ng-click="cardClick(actor)">
-      </div>
-      <!-- </a> -->
-      <div class="card-body text-center">
-      </div>
-      <a href={{actor.imdbURL}} target="_blank">
-        <h4 class="card-title">{{actor.fname}} {{actor.lname}}</h4>
-      </a>
-      <p class="card-text">Birthday: {{actor.birthday}}</p>
-      <p></p>
     </div>
+
+
+
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <div class="card-deck">
+      <div class="card " ng-repeat="actor in actors | filter : filterName | orderBy : sellist1 ">
+        <!-- <a href={{actor.imdbURL}} target="_blank"> -->
+        <div ng-model="cardSel" ng-class="{'imgClassB' : actor === selectedActor}">
+          <img class="card-img-top" ng-src={{actor.imgURL}} alt="Card image" style="width:100%" ng-click="cardClick(actor)">
+        </div>
+        <!-- </a> -->
+        <div class="card-body text-center">
+        </div>
+        <a href={{actor.imdbURL}} target="_blank">
+          <h4 class="card-title">{{actor.fname}} {{actor.lname}}</h4>
+        </a>
+        <p class="card-text">Birthday: {{actor.birthday}}</p>
+        <p></p>
+      </div>
+    </div>
+    <p></p>
   </div>
-  <p></p>
-</div>
