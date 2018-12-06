@@ -1,4 +1,4 @@
-app.controller("messagesCtrl", function($scope,$http, user, $location) {
+app.controller("messagesCtrl", function($scope,$http, messages, user, $location) {
 $scope.test=21;
     // Checking if the user is currently logged in,
     // if not redirecting to the home page

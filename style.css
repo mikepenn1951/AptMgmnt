@@ -3,3 +3,9 @@
     width: 500px;
     margin: 0 auto;
 }
+
+.message > img {
+    object-fit: cover;
+    height: 50px;
+    width: 50px;
+}

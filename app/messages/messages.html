@@ -6,7 +6,6 @@
     <div class="form-inline">
       {{test}}
       <div class="form-group ml-3">
-          {{test}}
 
         <label for="inp1">Filter by text:&nbsp</label>
         <input type="text" class="form-control" placeholder="Filter by text in message" ng-model="searchText">
@@ -31,6 +30,7 @@
         new message
       </a>
     </div>
+    {{test+1}}
 
 
 
@@ -40,6 +40,23 @@
       <!-- <br> -->
     </div>
   </form>
+
+  <div class="row">
+    {{test+2}}
+    <div class="col-sm-6 col-md-4 my-2" ng-repeat="message in messages">
+        <div class="card message">
+            <img class="card-img-top" ng-src="{{message.imgUrl}}" alt="">
+            <div class="card-body">
+                <h4 class="card-title">{{message.title}}</h4>
+                <p class="card-text">{{message.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
   <!-- The Modal -->
   <div class="modal" id="myModal">
@@ -103,17 +120,6 @@
     </div>
 
 
-    <!-- <div class="row">
-      <div class="col-sm-6 col-md-4 my-2" ng-repeat="message in messages">
-          <div class="card recipe">
-              <img class="card-img-top" ng-src="{{message.imgUrl}}" alt="">
-              <div class="card-body">
-                  <h4 class="card-title">{{message.name}}</h4>
-                  <p class="card-text">{{message.description}}</p>
-              </div>
-          </div>
-      </div>
-  </div> -->
 
 
 

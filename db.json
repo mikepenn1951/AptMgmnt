@@ -18,18 +18,8 @@
     "messages": [
         {
             "id": 1,
-            "date": "06/12/2018",
-            "title": "Message1",
-            "description": "Message1 description",
-            "priority": "Important",
-            "comments": "comment1",
-            "imgUrl": "http://media.foodnetwork.ca/recipetracker/56239255-96d6-4670-8a73-040baaf51f41_Shakshouka_WebReady.jpg",
-            "userId": 1
-        },
-        {
-            "id": 1,
             "date": "01/12/2018",
-            "title": "Message1",
+            "title": "Message1 title",
             "description": "Message1 description",
             "priority": "Important",
             "comments": "comment1",
@@ -39,7 +29,7 @@
         {
             "id": 2,
             "date": "02/12/2018",
-            "title": "Message2",
+            "title": "Message2 title",
             "description": "Message2 description",
             "priority": "Important",
             "comments": "comment2",
@@ -49,7 +39,7 @@
         {
             "id": 3,
             "date": "03/12/2018",
-            "title": "Message3",
+            "title": "Message3 title",
             "description": "Message3 description",
             "priority": "Info",
             "comments": "comment3",
@@ -59,7 +49,7 @@
         {
             "id": 4,
             "date": "04/12/2018",
-            "title": "Message4",
+            "title": "Message4 title",
             "description": "Message4 description",
             "priority": "Info",
             "comments": "comment4",
