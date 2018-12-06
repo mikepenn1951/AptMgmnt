@@ -15,42 +15,56 @@
             "pwd": "123"
         }
     ],
-    "recipes": [
+    "messages": [
         {
             "id": 1,
-            "name": "Shakshuka",
-            "description": "Amazing egg dish with tomatto souce",
-            "ingredients": "Egg, Tomatto, Onion",
-            "steps": "Pout eggs and then tomatto",
+            "date": "06/12/2018",
+            "title": "Message1",
+            "description": "Message1 description",
+            "priority": "Important",
+            "comments": "comment1",
+            "imgUrl": "http://media.foodnetwork.ca/recipetracker/56239255-96d6-4670-8a73-040baaf51f41_Shakshouka_WebReady.jpg",
+            "userId": 1
+        },
+        {
+            "id": 1,
+            "date": "01/12/2018",
+            "title": "Message1",
+            "description": "Message1 description",
+            "priority": "Important",
+            "comments": "comment1",
             "imgUrl": "http://media.foodnetwork.ca/recipetracker/56239255-96d6-4670-8a73-040baaf51f41_Shakshouka_WebReady.jpg",
             "userId": 1
         },
         {
             "id": 2,
-            "name": "Shakshuka",
-            "description": "Amazing egg dish with tomatto souce",
-            "ingredients": "Egg, Tomatto, Onion",
-            "steps": "Pout eggs and then tomatto",
+            "date": "02/12/2018",
+            "title": "Message2",
+            "description": "Message2 description",
+            "priority": "Important",
+            "comments": "comment2",
             "imgUrl": "https://www.serenaonline.co.za/wp-content/uploads/2017/12/Shakshouka-Poached-Eggs-in-a-Spicy-Tomato-Sauce-Smaller-File.jpg",
             "userId": 1
         },
         {
             "id": 3,
-            "name": "Shakshuka",
-            "description": "Amazing egg dish with tomatto souce",
-            "ingredients": "Egg, Tomatto, Onion",
-            "steps": "Pout eggs and then tomatto",
+            "date": "03/12/2018",
+            "title": "Message3",
+            "description": "Message3 description",
+            "priority": "Info",
+            "comments": "comment3",
             "imgUrl": "https://cdn.katalogsmakow.pl/2015/10/06/0x600/najlepsze-sniadanie-szakszuka-shakshouka-jajka-w-pomidorach.359892.jpg",
             "userId": 2
         },
         {
             "id": 4,
-            "name": "Shakshuka",
-            "description": "Amazing egg dish with tomatto souce",
-            "ingredients": "Egg, Tomatto, Onion",
-            "steps": "Pout eggs and then tomatto",
+            "date": "04/12/2018",
+            "title": "Message4",
+            "description": "Message4 description",
+            "priority": "Info",
+            "comments": "comment4",
             "imgUrl": "http://www.spicechronicles.com/wp-content/uploads/2015/09/Shakshouka_1_650.jpg",
             "userId": 2
-        }        
+        }
     ]
 }
