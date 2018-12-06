@@ -4,8 +4,12 @@
     margin: 0 auto;
 }
 
-.message > img {
+.p > img {
     object-fit: cover;
     height: 50px;
     width: 50px;
+}
+
+#h1-msg{
+    text-align: center;
 }

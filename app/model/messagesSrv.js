@@ -1,6 +1,6 @@
 app.factory("messages", function($q, $http, user) {
     var messages = {};
-    var wasEverLoaded = {};
+    var wasEverLoaded = false;
 
     function Message(plainMessage) {
         this.id = plainMessage.id;
@@ -18,18 +18,18 @@ app.factory("messages", function($q, $http, user) {
 
         // This is a hack since we don't really have a persistant server.
         // So I want to get all messages only once.
-        if (wasEverLoaded[userId]) {
+        if (wasEverLoaded) {
             async.resolve(messages);
         } else {
             messages = [];
-            var getMessagesURL = "http://my-json-server.typicode.com/mikepenn1951/AptMgmnt/messages?userId=" + userId;
+            var getMessagesURL = "http://my-json-server.typicode.com/mikepenn1951/AptMgmnt/messages";
             
             $http.get(getMessagesURL).then(function(response) {
                 for (var i = 0; i < response.data.length; i++) {
                     var message = new Message(response.data[i]);
                     messages.push(message);
                 }
-                wasEverLoaded[userId] = true;
+                wasEverLoaded = true;
                 async.resolve(messages);
             }, function(error) {
                 async.reject(error);
