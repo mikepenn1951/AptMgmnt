@@ -2,7 +2,7 @@
 <h1 id="h1-msg">messages</h1>
 
 
-<div class="container" >
+<div class="container">
   <form class="my-3">
     <div class="form-inline">
       <div class="form-group ml-3">
@@ -28,13 +28,13 @@
 
 
 
-    
-    <div class="form-group" ng-hide="isThisUserCM()">
-      <a href="text" data-toggle="modal" data-target="#myModal" >
+
+    <div class="form-group" ng-show="isThisUserCM()">
+      <a href="text" data-toggle="modal" data-target="#myModal">
         new message
       </a>
     </div>
-  
+
 
 
 
@@ -45,7 +45,7 @@
   </form>
 
 
-  <table class="table">
+  <table class="table table-hover">
     <thead>
       <tr>
         <!-- <th ></th>  -->
@@ -56,12 +56,16 @@
     <tbody>
       <tr ng-repeat="message in messages">
         <td>
-          <p>{{message.date}} {{message.title}}</p>
-          <p>message id: {{message.id}}</p>
-          <p>{{message.description}}</p>
-          <p> {{message.priority}}p</p>
-          <p>{{message.comments}}c</p>
-          <p>userId: {{message.userId}}</p>
+          <p>
+            <i class="fas fa-exclamation-circle impIcon mr-4" ng-show="message.priority == 'Important'"></i>
+            <i class="fas fa-info-circle mr-4" ng-show="message.priority == 'Info'"></i>
+            {{message.date}} <span><b>Title:&nbsp</b></span>{{message.title}}
+          </p>
+          <!-- <p><i class="fas fa-info-circle mr-4"></i>message id: {{message.id}}</p> -->
+          <p><span><b>Message:&nbsp</b></span>{{message.description}}</p>
+          <!-- <p> {{message.priority}}p</p> -->
+          <p><span><b>Comment:&nbsp</b></span>{{message.comments}}c</p>
+          <!-- <p>userId: {{message.userId}}</p> -->
           <p><img class="card-img-top" ng-src="{{message.imgUrl}}" alt=""></p>
         </td>
         <!-- <td> <input class="mr-3" type="checkbox" ng-model="todoItem.chbValue" ng-click="cntActive($index)">{{todoItem.todo}}</td> -->

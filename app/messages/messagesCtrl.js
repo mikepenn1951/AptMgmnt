@@ -12,7 +12,8 @@ app.controller("messagesCtrl", function($scope,$http, messages, user, $location)
     })
 
     $scope.isThisUserCM = function() {
-        return user.isUserCM();
+        var utype = user.isUserCM();
+        return utype;
     }
 
 

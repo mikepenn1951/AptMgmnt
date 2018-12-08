@@ -16,7 +16,7 @@ app.factory("user", function($q, $http) {
         this.lname = plainUser.lname;
         this.email = plainUser.email;
         this.pwd = plainUser.pwd;
-        this.userType = plainUser.userType;  //CM, TE
+        this.type = plainUser.type;  //CM, TE
     }
 
     function login(email, pwd) {
@@ -45,7 +45,7 @@ app.factory("user", function($q, $http) {
     }
 
     function isUserCM() {
-        return (activeUser.userType == "CM") ? true : false;
+        return (activeUser.type == "CM") ? true : false;
     }
 
 
