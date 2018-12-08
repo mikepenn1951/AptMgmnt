@@ -12,10 +12,10 @@
       </div>
       <div class="form-group ml-5">
         <label for="sel1">Filter by Priority:&nbsp</label>
-        <select class="form-control" id="selP1" name="selP1" ng-model="selP1">
-          <option>none</option>
-          <option value='important'>Important</option>
-          <option value='info'>Info</option>
+        <select class="form-control" id="selP1" name="selP1" ng-model="selP1"> 
+          <option value='none' selected>none</option>
+          <option value='Important'>Important</option>
+          <option value='Info'>Info</option>
         </select>
       </div>
       <div class="form-group ml-5">
@@ -54,7 +54,7 @@
 
     </thead>
     <tbody>
-      <tr ng-repeat="message in messages">
+      <tr ng-repeat="message in messages | filter : filterMessage | filter : filterPriority | orderBy : 'rdVar' ">
         <td>
           <p>
             <i class="fas fa-exclamation-circle impIcon mr-4" ng-show="message.priority == 'Important'"></i>
