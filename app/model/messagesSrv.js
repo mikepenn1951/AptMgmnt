@@ -7,6 +7,8 @@ app.factory("messages", function($q, $http, user) {
         this.date = plainMessage.date;
         this.title = plainMessage.title;
         this.description = plainMessage.description;
+        this.priority = plainMessage.priority;
+        this.comments = plainMessage.comments;
         this.imgUrl = plainMessage.imgUrl;
         this.userId = plainMessage.userId;
     }

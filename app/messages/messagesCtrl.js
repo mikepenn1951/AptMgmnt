@@ -11,5 +11,10 @@ app.controller("messagesCtrl", function($scope,$http, messages, user, $location)
     }, function(error) {
     })
 
+    $scope.isThisUserCM = function() {
+        return user.isUserCM();
+    }
+
+
 
 });
