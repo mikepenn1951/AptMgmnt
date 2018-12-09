@@ -1,4 +1,10 @@
 app.controller("messagesCtrl", function ($scope, $http, messages, user, $location) {
+    $(document).ready(function(){
+        $("#delBtn").click(function(){
+            $("#delModal").modal();
+        });
+    });
+    
     // Checking if the user is currently logged in,
     // if not redirecting to the home page
     if (!user.isLoggedIn()) {
@@ -45,32 +51,32 @@ app.controller("messagesCtrl", function ($scope, $http, messages, user, $locatio
     }
 
     $scope.rdVar = "date";
-
+    // var delTheMessage = false;
     $scope.deleteMsg = function (message) {
-        // window.alert("over icon: " + ind);
-        // if ($scope.todoItems[ind].chbValue == false)
-        //   window.alert("Warning, Item is not completed: " + $scope.todoItems[ind].todo);
-        var ind = $scope.messages.indexOf(message);
-        $scope.messages.splice(ind, 1);
+        // if (delTheMessage){
+            var ind = $scope.messages.indexOf(message);
+            $scope.messages.splice(ind, 1);
+        //     delTheMessage = false;
+        // }
     }
+    // $scope.delMsg = function () {
+    //     delTheMessage = true;
+    // }
+
+
 
     $scope.priority = "important";
     $scope.saveNewMsg = function () {
-        var message = new $scope.Message();
-        message.id = 11;
-        message.date = 2009 / 03 / 23;
-        message.title = newmessage1t;
-        message.description = newmessage1d;
-        message.comments = newcomment1
-        message.imgUrl = "";
-        message.userId = 3;
-        messages.push(message);
-
-        window.alert("saveNewMsg " + messages );
-        // if ($scope.todoItems[ind].chbValue == false)
-        //   window.alert("Warning, Item is not completed: " + $scope.todoItems[ind].todo);
-        // var ind =  $scope.messages.indexOf(message);      
-        // $scope.messages.splice(ind, 1);
+        messages.createMessage($scope.title, $scope.description, 
+            $scope.comments, $scope.image).then(function () {
+            $location.path("/messages")
+        }, function (err) {
+            console.log(err);
+        })
     }
+
+
+
+
 
 });

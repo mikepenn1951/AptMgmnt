@@ -42,20 +42,20 @@ app.factory("messages", function($q, $http, user) {
     }
 
 
-    function createRecipe(name, description, ingredients, steps, imgUrl) {
+    function createMessage(title, description, comments, imgUrl) {
         var async = $q.defer();
 
         var userId = user.getActiveUser().id;
 
-        var newRecipe = new Recipe({id:-1, name: name, description: description,
-            ingredients: ingredients, steps: steps, imgUrl: imgUrl, 
+        var newMessage = new Message({id:-1, title: title, description: description,
+            comments: comments, imgUrl: imgUrl, 
             userId: userId});
 
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newRecipe).then.....
 
-        recipes[userId].push(newRecipe);
-        async.resolve(newRecipe);
+        messages.push(newMessage);
+        async.resolve(newMessage);
 
         return async.promise;
     }
@@ -63,7 +63,7 @@ app.factory("messages", function($q, $http, user) {
 
     return {
         getMessages: getMessages,
-        createRecipe: createRecipe
+        createMessage: createMessage
     }
 
 })
