@@ -12,7 +12,7 @@
       </div>
       <div class="form-group ml-5">
         <label for="sel1">Filter by Priority:&nbsp</label>
-        <select class="form-control" id="selP1" name="selP1" ng-model="selP1"> 
+        <select class="form-control" id="selP1" name="selP1" ng-model="selP1">
           <option value='none' selected>none</option>
           <option value='Important'>Important</option>
           <option value='Info'>Info</option>
@@ -30,7 +30,7 @@
 
 
     <div class="form-group" ng-show="isThisUserCM()">
-      <a href="text" data-toggle="modal" data-target="#myModal">
+      <a id="newMsg" type="button" class="btn" href="text" data-toggle="modal" data-target="#myModal">
         new message
       </a>
     </div>
@@ -54,19 +54,34 @@
 
     </thead>
     <tbody>
-      <tr ng-repeat="message in messages | filter : filterMessage | filter : filterPriority | orderBy : 'rdVar' ">
+      <tr ng-repeat="message in messages | filter : filterMessage | filter : filterPriority | orderBy : rdVar  track by $index ">
         <td>
           <p>
             <i class="fas fa-exclamation-circle impIcon mr-4" ng-show="message.priority == 'Important'"></i>
             <i class="fas fa-info-circle mr-4" ng-show="message.priority == 'Info'"></i>
-            {{message.date}} <span><b>Title:&nbsp</b></span>{{message.title}}
+            {{message.date}}
+            <span>
+              <b>Title:&nbsp</b>
+            </span>{{message.title}}
           </p>
           <!-- <p><i class="fas fa-info-circle mr-4"></i>message id: {{message.id}}</p> -->
-          <p><span><b>Message:&nbsp</b></span>{{message.description}}</p>
+          <p>
+            <span>
+              <b>Message:&nbsp</b>
+            </span>{{message.description}}</p>
           <!-- <p> {{message.priority}}p</p> -->
-          <p><span><b>Comment:&nbsp</b></span>{{message.comments}}c</p>
+          <p>
+            <span>
+              <b>Comment:&nbsp</b>
+            </span>{{message.comments}}c</p>
           <!-- <p>userId: {{message.userId}}</p> -->
-          <p><img class="card-img-top" ng-src="{{message.imgUrl}}" alt=""></p>
+          <p>
+            <img ng-src="{{message.imgUrl}}" alt="">
+            <div id="delBtn" ng-show="isThisUserCM()">
+              <button>Update</button>
+              <button ng-click="deleteMsg(message)">Delete</button>
+            </div>
+          </p>
         </td>
         <!-- <td> <input class="mr-3" type="checkbox" ng-model="todoItem.chbValue" ng-click="cntActive($index)">{{todoItem.todo}}</td> -->
       </tr>
@@ -123,7 +138,7 @@
               <label for="priority" class="col-sm-2 col-form-label">Priority</label>
               <div class="col-sm-10">
                 <select class="form-control" id="priority" name="priority" ng-model="priority">
-                  <option>none</option>
+                  <!-- <option>none</option> -->
                   <option value='important'>Important</option>
                   <option value='info'>Info</option>
                 </select>
@@ -142,11 +157,12 @@
                 </div>
               </div> -->
           </form>
-        </div> <!-- End of Modal body -->
+        </div>
+        <!-- End of Modal body -->
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn " data-dismiss="modal">Save</button>
+          <button type="button" class="btn " data-dismiss="modal" ng-click="saveNewMsg()">Save</button>
           <button type="button" class="btn " data-dismiss="modal">Discard</button>
         </div>
 
