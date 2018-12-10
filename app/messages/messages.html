@@ -77,10 +77,10 @@
           <!-- <p>userId: {{message.userId}}</p> -->
           <p>
             <img ng-src="{{message.imgUrl}}" alt="">
-            <div id="delBtn" ng-show="isThisUserCM()">
+            <div id="delBtnDiv" ng-show="isThisUserCM()" >
               <button>Update</button>
               <!-- <button ng-click="deleteMsg(message)">Delete</button> -->
-              <button type="button" id="delBtn">Delete</button>
+              <button type="button"   ng-click="openDeleteMessageModal(message)">Delete</button>
             </div>
           </p>
         </td>
@@ -190,6 +190,7 @@
           <form>
             <div class="form-group row">
               <p>Are you sure you want to delete message?</p>
+              <!-- <div class="x"></div> -->
             </div>
           </form>
         </div>  <!-- End of container -->
@@ -198,7 +199,7 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <!-- <button type="button" class="btn " data-dismiss="modal" ng-click="delMsg()">Delete</button> -->
-          <button type="button" class="btn " data-dismiss="modal" ng-click="deleteMsg(message)">Delete</button>
+          <button type="button" class="btn " data-dismiss="modal" ng-click="deleteMsg()">Delete</button>
           <button type="button" class="btn " data-dismiss="modal">Cancel</button>
         </div>
 

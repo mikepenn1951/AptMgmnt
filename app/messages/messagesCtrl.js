@@ -1,12 +1,15 @@
 app.controller("messagesCtrl", function ($scope, $http, messages, user, $location) {
-    $(document).ready(function(){
-        $("#delBtn").click(function(){
-            $("#delModal").modal();
-        });
-    });
     
+    var msgToDel = "";
+
     // Checking if the user is currently logged in,
     // if not redirecting to the home page
+    
+    $scope.openDeleteMessageModal = function(message){
+        $("#delModal").modal();
+        // $(".x").text( message.title );
+        msgToDel = message;
+    }
     if (!user.isLoggedIn()) {
         $location.path("/");
         return;
@@ -52,9 +55,9 @@ app.controller("messagesCtrl", function ($scope, $http, messages, user, $locatio
 
     $scope.rdVar = "date";
     // var delTheMessage = false;
-    $scope.deleteMsg = function (message) {
+    $scope.deleteMsg = function () {
         // if (delTheMessage){
-            var ind = $scope.messages.indexOf(message);
+            var ind = $scope.messages.indexOf(msgToDel);
             $scope.messages.splice(ind, 1);
         //     delTheMessage = false;
         // }
