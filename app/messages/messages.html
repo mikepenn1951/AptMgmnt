@@ -30,7 +30,7 @@
 
 
     <div class="form-group" ng-show="isThisUserCM()">
-      <a id="newMsg" type="button" class="btn" href="text" data-toggle="modal" data-target="#myModal">
+      <a id="newMsg" type="button" class="btn" href="text" data-toggle="modal" data-target="#newMsgModal">
         new message
       </a>
     </div>
@@ -78,7 +78,7 @@
           <p>
             <img ng-src="{{message.imgUrl}}" alt="">
             <div id="delBtnDiv" ng-show="isThisUserCM()" >
-              <button>Update</button>
+              <button type="button"   ng-click="updateMsg(message)">Update</button>
               <!-- <button ng-click="deleteMsg(message)">Delete</button> -->
               <button type="button"   ng-click="openDeleteMessageModal(message)">Delete</button>
             </div>
@@ -109,7 +109,7 @@
 
 
 <!-- The Modal, New Message-->
-<div class="modal" id="myModal">
+<div class="modal" id="newMsgModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -146,9 +146,9 @@
               </div>
             </div>
             <div class="form-group row">
-              <label for="image" class="col-sm-2 col-form-label">Image</label>
+              <label for="imgUrl" class="col-sm-2 col-form-label">Image</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="image" ng-model="image" />
+                <input type="text" class="form-control" id="imgUrl" ng-model="imgUrl" />
               </div>
             </div>
             <!-- <div class="form-group row">

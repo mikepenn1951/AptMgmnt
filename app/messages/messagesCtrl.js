@@ -67,17 +67,40 @@ app.controller("messagesCtrl", function ($scope, $http, messages, user, $locatio
     // }
 
 
-
+    var updateOrSave = "save";
     $scope.priority = "important";
     $scope.saveNewMsg = function () {
-        messages.createMessage($scope.title, $scope.description, 
-            $scope.comments, $scope.image).then(function () {
-            $location.path("/messages")
-        }, function (err) {
-            console.log(err);
-        })
+        if (updateOrSave == "save"){
+            messages.createMessage($scope.title, $scope.description, 
+                $scope.comments, $scope.imgUrl).then(function () {
+                $location.path("/messages")
+            }, function (err) {
+                console.log(err);
+            })
+    
+        }else{
+            messages.createMessage($scope.title, $scope.description, 
+                $scope.comments, $scope.imgUrl).then(function () {
+                $location.path("/messages")
+            }, function (err) {
+                console.log(err);
+            })
+        }
+        updateOrSave = "save";
+        $scope.title = "";
+        $scope.description = "";
+        $scope.comments = "";
+        $scope.imgUrl = "";
+        
     }
 
+    $scope.updateMsg = function (message) {
+        $scope.title = message.title;
+        $scope.description = message.description;
+        $scope.comments = message.comments;
+        $scope.imgUrl = message.imgUrl;
+        $("#newMsgModal").modal();
+    }
 
 
 
