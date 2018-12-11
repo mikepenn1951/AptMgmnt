@@ -68,10 +68,11 @@ app.controller("messagesCtrl", function ($scope, $http, messages, user, $locatio
 
 
     var updateOrSave = "save";
-    $scope.priority = "important";
+    $scope.priority = "Important";
+    var msgToUpdate;
     $scope.saveNewMsg = function () {
         if (updateOrSave == "save"){
-            messages.createMessage($scope.title, $scope.description, 
+            messages.createMessage($scope.title, $scope.description, $scope.priority,
                 $scope.comments, $scope.imgUrl).then(function () {
                 $location.path("/messages")
             }, function (err) {
@@ -79,8 +80,8 @@ app.controller("messagesCtrl", function ($scope, $http, messages, user, $locatio
             })
     
         }else{
-            messages.createMessage($scope.title, $scope.description, 
-                $scope.comments, $scope.imgUrl).then(function () {
+            messages.updateMessage($scope.title, $scope.description, $scope.priority,
+                $scope.comments, $scope.imgUrl, msgToUpdate).then(function () {
                 $location.path("/messages")
             }, function (err) {
                 console.log(err);
@@ -97,8 +98,11 @@ app.controller("messagesCtrl", function ($scope, $http, messages, user, $locatio
     $scope.updateMsg = function (message) {
         $scope.title = message.title;
         $scope.description = message.description;
+        $scope.priority = message.priority;
         $scope.comments = message.comments;
         $scope.imgUrl = message.imgUrl;
+        msgToUpdate = message;
+        updateOrSave = "update";
         $("#newMsgModal").modal();
     }
 

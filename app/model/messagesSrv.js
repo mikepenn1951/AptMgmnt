@@ -1,4 +1,4 @@
-app.factory("messages", function($q, $http, user) {
+app.factory("messages", function ($q, $http, user) {
     var messages = {};
     var wasEverLoaded = false;
 
@@ -25,15 +25,15 @@ app.factory("messages", function($q, $http, user) {
         } else {
             messages = [];
             var getMessagesURL = "http://my-json-server.typicode.com/mikepenn1951/AptMgmnt/messages";
-            
-            $http.get(getMessagesURL).then(function(response) {
+
+            $http.get(getMessagesURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
                     var message = new Message(response.data[i]);
                     messages.push(message);
                 }
                 wasEverLoaded = true;
                 async.resolve(messages);
-            }, function(error) {
+            }, function (error) {
                 async.reject(error);
             });
         }
@@ -41,29 +41,83 @@ app.factory("messages", function($q, $http, user) {
         return async.promise;
     }
 
+    function getDateFormat() {
+        var d = new Date();
+        if ((d.getMonth() + 1) < 10) {
+            var mm = "0" + (d.getMonth() + 1);
+        }
+        else {
+            var mm = (d.getMonth() + 1);
+        }
+        if ((d.getDate()) < 10) {
+            var dd = "0" + (d.getDate());
+        }
+        else {
+            var dd = (d.getMonth());
+        }
 
-    function createMessage(title, description, comments, imgUrl) {
+        var d1 = d.getFullYear() + "/" + mm + "/" + dd;
+        return d1;
+
+    }
+
+    function createMessage(title, description, priority, comments, imgUrl) {
         var async = $q.defer();
 
         var userId = user.getActiveUser().id;
 
-        var newMessage = new Message({id:-1, title: title, description: description,
-            comments: comments, imgUrl: imgUrl, 
-            userId: userId});
+        var newMessage = new Message({
+            id: -1, title: title, description: description,
+            priority: priority, comments: comments, imgUrl: imgUrl,
+            userId: userId
+        });
 
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newRecipe).then.....
 
+        // fix date
+        newMessage.date = getDateFormat();
         messages.push(newMessage);
         async.resolve(newMessage);
 
         return async.promise;
     }
 
+    function updateMessage(title, description, priority, comments, imgUrl, message) {
+        var async = $q.defer();
+
+        var userId = user.getActiveUser().id;
+
+        var newMessage = new Message({
+            id: -1, title: title, description: description,
+            priority: priority, comments: comments, imgUrl: imgUrl,
+            userId: userId
+        });
+
+        // if working with real server:
+        //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newRecipe).then.....
+
+        // fix date, id
+
+        newMessage.date = message.date;
+        newMessage.id = message.id;
+        newMessage.comments = message.comments;
+        newMessage.userId = message.userId;
+        var ind = messages.indexOf(message);
+        messages.splice(ind, 1, newMessage);
+        async.resolve(newMessage);
+
+        return async.promise;
+    }
+
+
+
+
 
     return {
         getMessages: getMessages,
-        createMessage: createMessage
+        createMessage: createMessage,
+        updateMessage: updateMessage
     }
 
 })
