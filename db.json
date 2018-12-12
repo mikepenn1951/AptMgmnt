@@ -24,7 +24,7 @@
             "title": "Message1 title",
             "description": "Message1 description",
             "priority": "Important",
-            "comments": ["c1","c2"],
+            "comments": "c1",
             "imgUrl": "http://media.foodnetwork.ca/recipetracker/56239255-96d6-4670-8a73-040baaf51f41_Shakshouka_WebReady.jpg",
             "userId": 1
         },
@@ -34,7 +34,7 @@
             "title": "Message2 title",
             "description": "Message2 description",
             "priority": "Important",
-            "comments": ["comment2","2"],
+            "comments": "c2",
             "imgUrl": "https://www.serenaonline.co.za/wp-content/uploads/2017/12/Shakshouka-Poached-Eggs-in-a-Spicy-Tomato-Sauce-Smaller-File.jpg",
             "userId": 1
         },
@@ -44,7 +44,7 @@
             "title": "Message3 title",
             "description": "Message3 description",
             "priority": "Info",
-            "comments": ["comment3"],
+            "comments": "c3",
             "imgUrl": "https://cdn.katalogsmakow.pl/2015/10/06/0x600/najlepsze-sniadanie-szakszuka-shakshouka-jajka-w-pomidorach.359892.jpg",
             "userId": 2
         },
@@ -54,7 +54,7 @@
             "title": "Message4 title",
             "description": "Message4 description",
             "priority": "Info",
-            "comments": ["comment4"],
+            "comments": "c4",
             "imgUrl": "http://www.spicechronicles.com/wp-content/uploads/2015/09/Shakshouka_1_650.jpg",
             "userId": 2
         },
@@ -64,7 +64,7 @@
             "title": "Message5 title",
             "description": "Message1 description",
             "priority": "Important",
-            "comments": ["comment5"],
+            "comments": "c5",
             "imgUrl": "http://media.foodnetwork.ca/recipetracker/56239255-96d6-4670-8a73-040baaf51f41_Shakshouka_WebReady.jpg",
             "userId": 1
         },
@@ -74,7 +74,7 @@
             "title": "Message5 title",
             "description": "Message1 description",
             "priority": "Info",
-            "comments": ["comment6"],
+            "comments": "c6",
             "imgUrl": "http://media.foodnetwork.ca/recipetracker/56239255-96d6-4670-8a73-040baaf51f41_Shakshouka_WebReady.jpg",
             "userId": 1
         }
