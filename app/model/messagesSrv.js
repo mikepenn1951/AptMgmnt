@@ -110,7 +110,7 @@ app.factory("messages", function ($q, $http, user) {
         return async.promise;
     }
 
-    function addComment( comments, message) {
+    function addComment( commentP, message) {
         var async = $q.defer();
 
         var userName = user.getActiveUser().fname + " " + user.getActiveUser().lname;
@@ -120,13 +120,14 @@ app.factory("messages", function ($q, $http, user) {
             priority: message.priority, comments: message.comments, imgUrl: message.imgUrl,
             userId: message.userId, date: message.date
         });
-
+        var comms = {};
+        comms = message.comments;
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newRecipe).then.....
 
         // fix date, id
         theDate = getDateFormat();
-        newMessage.comments = newMessage.comments + " " + theDate + " " + userName + "'<br>'" + comments;
+        comms.push( theDate + " " + userName + "'<br>'" + commentP);
         var ind = messages.indexOf(message);
         messages.splice(ind, 1, newMessage);
         async.resolve(newMessage);

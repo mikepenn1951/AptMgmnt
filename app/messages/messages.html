@@ -71,9 +71,8 @@
             </span>{{message.description}}</p>
           <!-- <p> {{message.priority}}p</p> -->
           <p>
-            <span>
-              <b>Comment:&nbsp</b>
-            </span><p>{{message.comments}}</p>
+              <span><b>Comment:&nbsp</b></span>
+              <p ng-repeat="comment in comments">{{message.comments}}</p>
           </p>
           <div class="form-group form-inline">
             <!-- <label for="comments2"></label> -->
