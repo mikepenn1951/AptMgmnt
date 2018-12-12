@@ -17,6 +17,7 @@ app.controller("messagesCtrl", function ($scope, $http, messages, user, $locatio
 
     messages.getMessages().then(function (messages) {
         $scope.messages = messages;
+        $scope.comments = messages.comments;
     }, function (error) {
     })
 
