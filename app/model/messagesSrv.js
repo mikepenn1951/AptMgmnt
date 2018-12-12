@@ -53,7 +53,7 @@ app.factory("messages", function ($q, $http, user) {
             var dd = "0" + (d.getDate());
         }
         else {
-            var dd = (d.getMonth());
+            var dd = (d.getDate());
         }
 
         var d1 = d.getFullYear() + "/" + mm + "/" + dd;
@@ -110,6 +110,29 @@ app.factory("messages", function ($q, $http, user) {
         return async.promise;
     }
 
+    function addComment( comments, message) {
+        var async = $q.defer();
+
+        var userName = user.getActiveUser().fname + " " + user.getActiveUser().lname;
+        
+        var newMessage = new Message({
+            id: message.id, title: message.title, description: message.description,
+            priority: message.priority, comments: message.comments, imgUrl: message.imgUrl,
+            userId: message.userId, date: message.date
+        });
+
+        // if working with real server:
+        //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newRecipe).then.....
+
+        // fix date, id
+        theDate = getDateFormat();
+        newMessage.comments = newMessage.comments + " " + theDate + " " + userName + "'<br>'" + comments;
+        var ind = messages.indexOf(message);
+        messages.splice(ind, 1, newMessage);
+        async.resolve(newMessage);
+
+        return async.promise;
+    }
 
 
 
@@ -117,7 +140,8 @@ app.factory("messages", function ($q, $http, user) {
     return {
         getMessages: getMessages,
         createMessage: createMessage,
-        updateMessage: updateMessage
+        updateMessage: updateMessage,
+        addComment: addComment
     }
 
 })

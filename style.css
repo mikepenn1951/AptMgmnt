@@ -18,7 +18,7 @@ img {
     color: red;
 }
 
-#delBtnDiv{
+.floatRightBtn{
     float: right;
 }
 
@@ -26,3 +26,4 @@ img {
     float: right;
     color:black;
 }
+

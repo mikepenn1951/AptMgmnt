@@ -106,6 +106,17 @@ app.controller("messagesCtrl", function ($scope, $http, messages, user, $locatio
         $("#newMsgModal").modal();
     }
 
+    // $scope.comments2 = "x";
+    $scope.addComm = function (message,comments2) {
+        msgToUpdate = message;
+
+        messages.addComment( comments2, msgToUpdate).then(function () {
+            $location.path("/messages")
+        }, function (err) {
+            console.log(err);
+        })
+
+    }
 
 
 

@@ -73,14 +73,23 @@
           <p>
             <span>
               <b>Comment:&nbsp</b>
-            </span>{{message.comments}}c</p>
+            </span><p>{{message.comments}}</p>
+          </p>
+          <div class="form-group form-inline">
+            <!-- <label for="comments2"></label> -->
+            <input type="text" class="form-control col-6" id="comments2" name="comments2" ng-model="comments2" placeholder="Add a comment"> 
+            <div class="ml-5" >
+              <button type="button" ng-click="addComm(message,comments2)">Add</button>
+            </div>
+          </div>
+
           <!-- <p>userId: {{message.userId}}</p> -->
           <p>
             <img ng-src="{{message.imgUrl}}" alt="">
-            <div id="delBtnDiv" ng-show="isThisUserCM()" >
-              <button type="button"   ng-click="updateMsg(message)">Update</button>
+            <div class="floatRightBtn" ng-show="isThisUserCM()">
+              <button type="button" ng-click="updateMsg(message)">Update</button>
               <!-- <button ng-click="deleteMsg(message)">Delete</button> -->
-              <button type="button"   ng-click="openDeleteMessageModal(message)">Delete</button>
+              <button type="button" ng-click="openDeleteMessageModal(message)">Delete</button>
             </div>
           </p>
         </td>
@@ -158,8 +167,8 @@
                 </div>
               </div> -->
           </form>
-        </div>  <!-- End of container -->
-        
+        </div> <!-- End of container -->
+
 
         <!-- Modal footer -->
         <div class="modal-footer">
@@ -169,8 +178,8 @@
 
       </div> <!-- End of Modal body -->
     </div> <!-- modal-content  -->
-  </div>  <!-- modal-dialog -->
-</div>  <!--  The Modal, New Message --> 
+  </div> <!-- modal-dialog -->
+</div> <!--  The Modal, New Message -->
 
 
 <!-- The Modal, Delete Message-->
@@ -193,8 +202,8 @@
               <!-- <div class="x"></div> -->
             </div>
           </form>
-        </div>  <!-- End of container -->
-        
+        </div> <!-- End of container -->
+
 
         <!-- Modal footer -->
         <div class="modal-footer">
@@ -205,5 +214,5 @@
 
       </div> <!-- End of Modal body -->
     </div> <!-- modal-content  -->
-  </div>  <!-- modal-dialog -->
-</div>  <!--  The Modal, Delete the Message --> 
+  </div> <!-- modal-dialog -->
+</div> <!--  The Modal, Delete the Message -->
