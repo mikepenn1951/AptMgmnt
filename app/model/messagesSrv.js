@@ -1,5 +1,6 @@
 app.factory("messages", function ($q, $http, user) {
     var messages = {};
+    var comments = [];
     var wasEverLoaded = false;
 
     function Message(plainMessage) {
@@ -127,7 +128,7 @@ app.factory("messages", function ($q, $http, user) {
 
         // fix date, id
         theDate = getDateFormat();
-        var tmpComm = theDate + " " + userName +  commentP;
+        var tmpComm = theDate + " " + userName + ": " + commentP;
         comms.push(tmpComm);
         newMessage.comments = comms;
         var ind = messages.indexOf(message);
