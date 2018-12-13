@@ -22,7 +22,7 @@ img {
     float: right;
 }
 
-#newMsg{
+.newMsg{
     float: right;
     color:black;
 }
