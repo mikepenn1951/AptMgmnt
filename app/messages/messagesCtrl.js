@@ -1,7 +1,6 @@
 app.controller("messagesCtrl", function ($scope, $http, messages, user, $location) {
     
     var msgToDel = "";
-    $scope.test = "test1";
     // Checking if the user is currently logged in,
     // if not redirecting to the home page
     
@@ -17,7 +16,7 @@ app.controller("messagesCtrl", function ($scope, $http, messages, user, $locatio
 
     messages.getMessages().then(function (messages) {
         $scope.messages = messages;
-        $scope.comments = messages.comments;
+        // $scope.comments = messages.comments;
     }, function (error) {
     })
 

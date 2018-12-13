@@ -1,6 +1,6 @@
 app.factory("messages", function ($q, $http, user) {
     var messages = {};
-    var comments = [];
+    // var comments = [];
     var wasEverLoaded = false;
 
     function Message(plainMessage) {
