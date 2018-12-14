@@ -10,8 +10,8 @@ app.factory("tenants", function ($q, $http, user) {
         this.email = plainTenant.email;
         this.pwd = plainTenant.pwd;
         this.type = plainTenant.type;  //CM, TE
-        this.addr = plainTenant.addr;  
-        this.tel = plainTenant.tel;  //CM, TE
+        this.addr = plainTenant.addr;
+        this.tel = plainTenant.tel;
     }
 
     function getTenants() {
@@ -20,9 +20,9 @@ app.factory("tenants", function ($q, $http, user) {
         var userId = user.getActiveUser().id;
 
         // This is a hack since we don't really have a persistant server.
-        // So I want to get all messages only once.
+        // So I want to get all tenants only once.
         if (wasEverLoaded) {
-    var tenants = {};
+            var tenants = {};
             async.resolve(tenants);
         } else {
             tenants = [];
@@ -30,7 +30,7 @@ app.factory("tenants", function ($q, $http, user) {
 
             $http.get(getTenantsURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
-                    var tenants = new Tenant(response.data[i]);
+                    var tenant = new Tenant(response.data[i]);
                     tenants.push(tenant);
                 }
                 wasEverLoaded = true;
@@ -101,13 +101,6 @@ app.factory("tenants", function ($q, $http, user) {
 
         // fix date, id
 
-        newMessage.date = message.date;
-        newMessage.id = message.id;
-        newMessage.comments = message.comments;
-        newMessage.userId = message.userId;
-        var ind = messages.indexOf(message);
-        messages.splice(ind, 1, newMessage);
-        async.resolve(newMessage);
 
         return async.promise;
     }

@@ -9,8 +9,8 @@ app.controller("tenantsCtrl", function ($scope, $http, tenants, user, $location)
         return;
     }
     $scope.test = 55;
-    tenants.getTenants().then(function (tenants) {
-        $scope.tenants = tenants;
+    tenants.getTenants().then(function (tenant) {
+        $scope.tenants = tenant;
     }, function (error) {
     })
 

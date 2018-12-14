@@ -11,7 +11,6 @@
         </div>
         <!-- </div> -->
 
-        {{tenant.fname}} {{test}}
 
 
         <div class="form-group" ng-show="isThisUserCM()">
@@ -47,8 +46,13 @@
                     {{tenant.email}} 
                 </td>
                 <td>
+                    {{tenant.addr}} 
+                </td>
+                <td>
+                    {{tenant.tel}} 
+                </td>
+                <td>
                     <p>
-                        <img ng-src="{{message.imgUrl}}" alt="">
                         <div class="floatRightBtn" ng-show="isThisUserCM()">
                             <button type="button" ng-click="updateMsg(message)">Update</button>
                             <!-- <button ng-click="deleteMsg(message)">Delete</button> -->

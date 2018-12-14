@@ -25,5 +25,6 @@ img {
 .newMsg{
     float: right;
     color:black;
+    margin-bottom: 5px;
 }
 
