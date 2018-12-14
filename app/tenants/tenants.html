@@ -3,92 +3,68 @@
 
 
 <div class="container">
-  <form class="my-3">
-    <!-- <div class="form-inline"> -->
-      <div class="form-group ">
-        <label for="inp1">Filter by text:&nbsp</label>
-        <input type="text" class="form-control" placeholder="Filter by text in list of tenants" ng-model="searchTenText">
-      </div>
+    <form class="my-3">
+        <!-- <div class="form-inline"> -->
+        <div class="form-group ">
+            <label for="inp1">Filter by text:&nbsp</label>
+            <input type="text" class="form-control" placeholder="Filter by text in list of tenants" ng-model="searchTenText">
+        </div>
+        <!-- </div> -->
 
-    <!-- </div> -->
-
-
-
-
-    <div class="form-group" ng-show="isThisUserCM()">
-      <a  type="button" class="btn newMsg" href="text" data-toggle="modal" data-target="#newTenModal">
-        new tenant
-      </a>
-    </div>
+        {{tenant.fname}} {{test}}
 
 
-
-
-    <!-- <form action="/action_page.php"> -->
-    <div class="form-group">
-      <!-- <br> -->
-    </div>
-  </form>
-
-
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <!-- <th ></th>  -->
-
-      </tr>
-
-    </thead>
-    <tbody>
-      <tr ng-repeat="message in messages | filter : filterMessage | filter : filterPriority | orderBy : rdVar  track by $index ">
-        <td>
-          <p>
-            <i class="fas fa-exclamation-circle impIcon mr-4" ng-show="message.priority == 'Important'"></i>
-            <i class="fas fa-info-circle mr-4" ng-show="message.priority == 'Info'"></i>
-            {{message.date}}
-            <span>
-              <b>Title:&nbsp</b>
-            </span>{{message.title}}
-          </p>
-          <!-- <p><i class="fas fa-info-circle mr-4"></i>message id: {{message.id}}</p> -->
-          <p>
-            <span>
-              <b>Message:&nbsp</b>
-            </span>{{message.description}}</p>
-          <!-- <p> {{message.priority}}p</p> -->
-          <p>
-              <span><b>Comment:&nbsp</b></span>
-              <!-- <p ng-repeat="comment in comments">{{comment}}</p> -->
-              <p ng-repeat="comment in message.comments">{{comment}}</p>
-              <!-- <p >{{test}}</p> -->
-          </p>
-          <div class="form-group form-inline">
-            <!-- <label for="comments2"></label> -->
-            <input type="text" class="form-control col-6" id="comments2" name="comments2" ng-model="comments2" placeholder="Add a comment"> 
-            <div class="ml-5" >
-              <button type="button" ng-click="addComm(message,comments2)">Add</button>
-            </div>
-          </div>
-
-          <!-- <p>userId: {{message.userId}}</p> -->
-          <p>
-            <img ng-src="{{message.imgUrl}}" alt="">
-            <div class="floatRightBtn" ng-show="isThisUserCM()">
-              <button type="button" ng-click="updateMsg(message)">Update</button>
-              <!-- <button ng-click="deleteMsg(message)">Delete</button> -->
-              <button type="button" ng-click="openDeleteMessageModal(message)">Delete</button>
-            </div>
-          </p>
-        </td>
-        <!-- <td> <input class="mr-3" type="checkbox" ng-model="todoItem.chbValue" ng-click="cntActive($index)">{{todoItem.todo}}</td> -->
-      </tr>
-    </tbody>
-  </table>
+        <div class="form-group" ng-show="isThisUserCM()">
+            <a type="button" class="btn newMsg" href="text" data-toggle="modal" data-target="#newTenModal">
+                new tenant
+            </a>
+        </div>
 
 
 
 
-  <!-- <div class="row">
+        <!-- <form action="/action_page.php"> -->
+        <div class="form-group">
+            <!-- <br> -->
+        </div>
+    </form>
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <!-- <th ></th>  -->
+
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr ng-repeat="tenant in tenants  ">
+                <td>
+                    {{tenant.fname}} &nbsp {{tenant.lname}}
+                </td>
+                <td>
+                    {{tenant.email}} 
+                </td>
+                <td>
+                    <p>
+                        <img ng-src="{{message.imgUrl}}" alt="">
+                        <div class="floatRightBtn" ng-show="isThisUserCM()">
+                            <button type="button" ng-click="updateMsg(message)">Update</button>
+                            <!-- <button ng-click="deleteMsg(message)">Delete</button> -->
+                            <button type="button" ng-click="openDeleteMessageModal(message)">Delete</button>
+                        </div>
+                    </p>
+                </td>
+                <!-- <td> <input class="mr-3" type="checkbox" ng-model="todoItem.chbValue" ng-click="cntActive($index)">{{todoItem.todo}}</td> -->
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+    <!-- <div class="row">
     <div class="col-sm-6 col-md-4 my-2" ng-repeat="message in messages">
         <div class="card message">
             <img class="card-img-top" ng-src="{{message.imgUrl}}" alt="">
@@ -106,100 +82,100 @@
 
 <!-- The Modal, New Message-->
 <div class="modal" id="newMsgModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">New Message</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">New Message</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
 
-      <div class="modal-body">
-        <!-- Begin of Modal body -->
-        <div class="container mt-5">
-          <form>
-            <div class="form-group row">
-              <label for="title" class="col-sm-2 col-form-label">Title</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="title" ng-model="title">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="description" class="col-sm-2 col-form-label">Description</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="description" ng-model="description">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="priority" class="col-sm-2 col-form-label">Priority</label>
-              <div class="col-sm-10">
-                <select class="form-control" id="priority" name="priority" ng-model="priority">
-                  <!-- <option>none</option> -->
-                  <option value='Important'>Important</option>
-                  <option value='Info'>Info</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="imgUrl" class="col-sm-2 col-form-label">Image</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="imgUrl" ng-model="imgUrl" />
-              </div>
-            </div>
-            <!-- <div class="form-group row">
+            <div class="modal-body">
+                <!-- Begin of Modal body -->
+                <div class="container mt-5">
+                    <form>
+                        <div class="form-group row">
+                            <label for="title" class="col-sm-2 col-form-label">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="title" ng-model="title">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="description" class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="description" ng-model="description">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="priority" class="col-sm-2 col-form-label">Priority</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="priority" name="priority" ng-model="priority">
+                                    <!-- <option>none</option> -->
+                                    <option value='Important'>Important</option>
+                                    <option value='Info'>Info</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="imgUrl" class="col-sm-2 col-form-label">Image</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="imgUrl" ng-model="imgUrl" />
+                            </div>
+                        </div>
+                        <!-- <div class="form-group row">
                 <div class="col-sm-12">
                   <button type="button" class="btn btn-block btn-lg btn-primary" ng-click="createRecipe()">Create
                     Recipe</button>
                 </div>
               </div> -->
-          </form>
-        </div> <!-- End of container -->
+                    </form>
+                </div> <!-- End of container -->
 
 
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn " data-dismiss="modal" ng-click="saveNewMsg()">Save</button>
-          <button type="button" class="btn " data-dismiss="modal">Discard</button>
-        </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn " data-dismiss="modal" ng-click="saveNewMsg()">Save</button>
+                    <button type="button" class="btn " data-dismiss="modal">Discard</button>
+                </div>
 
-      </div> <!-- End of Modal body -->
-    </div> <!-- modal-content  -->
-  </div> <!-- modal-dialog -->
+            </div> <!-- End of Modal body -->
+        </div> <!-- modal-content  -->
+    </div> <!-- modal-dialog -->
 </div> <!--  The Modal, New Message -->
 
 
 <!-- The Modal, Delete Message-->
 <div class="modal" id="delModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Delete Message</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <div class="modal-body">
-        <!-- Begin of Modal body -->
-        <div class="container mt-5">
-          <form>
-            <div class="form-group row">
-              <p>Are you sure you want to delete message?</p>
-              <!-- <div class="x"></div> -->
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Delete Message</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-          </form>
-        </div> <!-- End of container -->
+
+            <div class="modal-body">
+                <!-- Begin of Modal body -->
+                <div class="container mt-5">
+                    <form>
+                        <div class="form-group row">
+                            <p>Are you sure you want to delete message?</p>
+                            <!-- <div class="x"></div> -->
+                        </div>
+                    </form>
+                </div> <!-- End of container -->
 
 
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn " data-dismiss="modal" ng-click="delMsg()">Delete</button> -->
-          <button type="button" class="btn " data-dismiss="modal" ng-click="deleteMsg()">Delete</button>
-          <button type="button" class="btn " data-dismiss="modal">Cancel</button>
-        </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn " data-dismiss="modal" ng-click="delMsg()">Delete</button> -->
+                    <button type="button" class="btn " data-dismiss="modal" ng-click="deleteMsg()">Delete</button>
+                    <button type="button" class="btn " data-dismiss="modal">Cancel</button>
+                </div>
 
-      </div> <!-- End of Modal body -->
-    </div> <!-- modal-content  -->
-  </div> <!-- modal-dialog -->
+            </div> <!-- End of Modal body -->
+        </div> <!-- modal-content  -->
+    </div> <!-- modal-dialog -->
 </div> <!--  The Modal, Delete the Message -->

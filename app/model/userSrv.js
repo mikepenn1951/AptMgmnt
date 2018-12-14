@@ -17,6 +17,8 @@ app.factory("user", function($q, $http) {
         this.email = plainUser.email;
         this.pwd = plainUser.pwd;
         this.type = plainUser.type;  //CM, TE
+        this.addr = plainUser.addr;  
+        this.tel = plainUser.tel;  //CM, TE
     }
 
     function login(email, pwd) {

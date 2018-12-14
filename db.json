@@ -6,7 +6,9 @@
             "lname": "Channes",
             "email": "nir@nir.com",
             "pwd": "123",
-            "type": "CM"
+            "type": "CM",
+            "addr": "apt 1",
+            "tel:": "8222221"
         },
         {
             "id": 2,
@@ -14,7 +16,29 @@
             "lname": "Doe",
             "email": "john@john.com",
             "pwd": "123",
-            "type": "TE"
+            "type": "TE",
+            "addr": "apt 2",
+            "tel:": "8222222"
+        },
+        {
+            "id": 3,
+            "fname": "Job",
+            "lname": "Son",
+            "email": "job@job.com",
+            "pwd": "123",
+            "type": "CM",
+            "addr": "apt 3",
+            "tel:": "8222223"
+        },
+        {
+            "id": 4,
+            "fname": "Jill",
+            "lname": "Ron",
+            "email": "jil@jil.com",
+            "pwd": "123",
+            "type": "TE",
+            "addr": "apt 4",
+            "tel:": "8222224"
         }
     ],
     "messages": [
