@@ -22,7 +22,6 @@ app.factory("tenants", function ($q, $http, user) {
         // This is a hack since we don't really have a persistant server.
         // So I want to get all tenants only once.
         if (wasEverLoaded) {
-            var tenants = {};
             async.resolve(tenants);
         } else {
             tenants = [];
@@ -43,34 +42,15 @@ app.factory("tenants", function ($q, $http, user) {
         return async.promise;
     }
 
-    // function getDateFormat() {
-    //     var d = new Date();
-    //     if ((d.getMonth() + 1) < 10) {
-    //         var mm = "0" + (d.getMonth() + 1);
-    //     }
-    //     else {
-    //         var mm = (d.getMonth() + 1);
-    //     }
-    //     if ((d.getDate()) < 10) {
-    //         var dd = "0" + (d.getDate());
-    //     }
-    //     else {
-    //         var dd = (d.getDate());
-    //     }
 
-    //     var d1 = d.getFullYear() + "/" + mm + "/" + dd;
-    //     return d1;
-
-    // }
-
-    function createTenant(title, description, priority, comments, imgUrl) {
+    function createTenant(fname, lname, email, addr, tel) {
         var async = $q.defer();
 
         var userId = user.getActiveUser().id;
 
-        var newMessage = new Message({
-            id: -1, title: title, description: description,
-            priority: priority, comments: comments, imgUrl: imgUrl,
+        var newTenant = new Tenant({
+            id: -1, fname: fname, lname: lname,
+            email: email, addr: addr, tel: tel,
             userId: userId
         });
 
@@ -78,21 +58,20 @@ app.factory("tenants", function ($q, $http, user) {
         //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newRecipe).then.....
 
         // fix date
-        newMessage.date = getDateFormat();
-        messages.push(newMessage);
-        async.resolve(newMessage);
+        tenants.push(newTenant);
+        async.resolve(newTenant);
 
         return async.promise;
     }
 
-    function updateTenant(title, description, priority, comments, imgUrl, message) {
+    function updateTenant(fname, lname, email, addr, tel,tenant) {
         var async = $q.defer();
 
         var userId = user.getActiveUser().id;
 
-        var newMessage = new Message({
-            id: -1, title: title, description: description,
-            priority: priority, comments: comments, imgUrl: imgUrl,
+        var newTenant = new Tenant({
+            id: -1, fname: fname, lname: lname,
+            email: email, addr: addr, tel: tel,
             userId: userId
         });
 
@@ -100,6 +79,13 @@ app.factory("tenants", function ($q, $http, user) {
         //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newRecipe).then.....
 
         // fix date, id
+        newTenant.id = tenant.id;
+        newTenant.userId = tenant.userId;
+        newTenant.pwd = tenant.pwd;
+        newTenant.type = tenant.type;
+        var ind = tenants.indexOf(tenant);
+        tenants.splice(ind, 1, newTenant);
+        async.resolve(newTenant);
 
 
         return async.promise;
