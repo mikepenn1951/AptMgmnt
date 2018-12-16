@@ -25,7 +25,7 @@ app.factory("tenants", function ($q, $http, user) {
             async.resolve(tenants);
         } else {
             tenants = [];
-            var getTenantsURL = "http://my-json-server.typicode.com/mikepenn1951/AptMgmnt/users";
+            var getTenantsURL = "https://my-json-server.typicode.com/mikepenn1951/AptMgmnt/users";
 
             $http.get(getTenantsURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {

@@ -25,7 +25,7 @@ app.factory("messages", function ($q, $http, user) {
             async.resolve(messages);
         } else {
             messages = [];
-            var getMessagesURL = "http://my-json-server.typicode.com/mikepenn1951/AptMgmnt/messages";
+            var getMessagesURL = "https://my-json-server.typicode.com/mikepenn1951/AptMgmnt/messages";
 
             $http.get(getMessagesURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
