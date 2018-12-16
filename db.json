@@ -48,7 +48,7 @@
             "title": "Message1 title",
             "description": "Message1 description",
             "priority": "Important",
-            "comments": "c1",
+            "comments": ["2018/12/16 Nir Channes: new comment1", "2018/12/15 Moshe Channes: new comment1"],
             "imgUrl": "http://media.foodnetwork.ca/recipetracker/56239255-96d6-4670-8a73-040baaf51f41_Shakshouka_WebReady.jpg",
             "userId": 1
         },
