@@ -102,5 +102,50 @@
             "imgUrl": "https://media.foodnetwork.ca/recipetracker/56239255-96d6-4670-8a73-040baaf51f41_Shakshouka_WebReady.jpg",
             "userId": 1
         }
+    ],
+    "votes": [
+        {
+            "id": 1,
+            "endDate": "2018/12/01",
+            "shortDescr": "Vote1 title",
+            "detailDescr": "Vote1 description",
+            "userId": 1
+        },
+        {
+            "id": 2,
+            "endDate": "2018/12/01",
+            "shortDescr": "Vote2 title",
+            "detailDescr": "Vote2 description",
+            "userId": 4
+        },
+        {
+            "id": 3,
+            "endDate": "2018/12/01",
+            "shortDescr": "Vote3 title",
+            "detailDescr": "Vote3 description",
+            "userId": 2
+        },
+        {
+            "id": 4,
+            "endDate": "2018/12/01",
+            "shortDescr": "Vote4 title",
+            "detailDescr": "Vote4 description",
+            "userId": 5
+        },
+        {
+            "id": 5,
+            "endDate": "2018/12/01",
+            "shortDescr": "Vote5 title",
+            "detailDescr": "Vote5 description",
+            "userId": 6
+        },
+        {
+            "id": 6,
+            "endDate": "2018/12/01",
+            "shortDescr": "Vote6 title",
+            "detailDescr": "Vote6 description",
+            "userId": 8
+        }
     ]
+
 }
