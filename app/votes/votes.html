@@ -1,2 +1,46 @@
+
 <navbar-apt-mng></navbar-apt-mng>
-<h1>votes</h1>
+<h1 id="h1-msg">votes</h1>
+
+
+<div class="container">
+
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <!-- <th ></th>  -->
+
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr ng-repeat="vote in votes ">
+        <td>
+          <p>
+            {{vote.shortDescr}}
+          </p>
+          <p>
+            {{vote.detailDescr}}
+          </p>
+          <p>
+            <span>End Date: </span>{{vote.endDate}}
+          </p>
+          <p>
+            {{vote.radioVote}}
+          </p>
+          <p>
+            {{vote.checkBoxVote}}
+          </p>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+</div>
+
+

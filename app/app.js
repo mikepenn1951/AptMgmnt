@@ -17,7 +17,8 @@ app.config(function($routeProvider) {
         controller: "tenantsCtrl"
     }).when("/votes" , {
         templateUrl: "app/votes/votes.html",
-    }).when("/issues" , {
+        controller: "votesCtrl"
+     }).when("/issues" , {
         templateUrl: "app/issues/issues.html",
     }).when("/dashboard" , {
         templateUrl: "app/dashboard/dashboard.html",
