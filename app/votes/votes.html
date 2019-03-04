@@ -14,7 +14,7 @@
       </tr>
 
     </thead>
-    <tbody>
+    <tbody ng-app="">
       <tr ng-repeat="vote in votes ">
         <td>
           <p>
@@ -27,7 +27,9 @@
             <span>End Date: </span>{{vote.endDate}}
           </p>
           <p>
-            {{vote.radioVote}}
+            <span  ng-repeat="voteRadioVote in vote.radioVote ">
+              <input type="radio" ng-model="$parent.voteR" value="{{voteRadioVote}}">{{voteRadioVote}}
+            </span>
           </p>
           <p>
             {{vote.checkBoxVote}}
