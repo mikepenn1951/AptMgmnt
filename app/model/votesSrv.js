@@ -8,6 +8,8 @@ app.factory("votes", function ($q, $http, user) {
         this.endDate = plainVote.endDate;
         this.shortDescr = plainVote.shortDescr;
         this.detailDescr = plainVote.detailDescr;
+        this.radioVote = plainVote.radioVote;
+        this.checkBoxVote = plainVote.checkBoxVote;
         this.userId = plainVote.userId;
     }
 
