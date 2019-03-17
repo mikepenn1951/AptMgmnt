@@ -110,7 +110,7 @@
             "shortDescr": "Vote1 title",
             "detailDescr": "Vote1 description",
             "radioVote": ["radioVote1","radioVote2","radioVote3"],
-            "checkBoxVote": "checkBoxVote",
+            "checkBoxVote": ["checkBoxVote1","checkBoxVote1","checkBoxVote1"],
             "userId": 1
         },
         {

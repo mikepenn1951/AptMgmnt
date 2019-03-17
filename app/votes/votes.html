@@ -33,6 +33,9 @@
           </p>
           <p>
             {{vote.checkBoxVote}}
+            <span  ng-repeat="voteCheckBoxVote in vote.checkBoxVote ">
+              <input type="checkbox" ng-model="$parent.voteC" value="{{voteCheckBoxVote}}">{{voteCheckBoxVote}}
+            </span>
           </p>
 
         </td>
