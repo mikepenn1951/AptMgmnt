@@ -10,7 +10,12 @@
     <thead>
       <tr>
         <!-- <th ></th>  -->
-
+        <div class="form-group" ng-show="isThisUserCM()">
+          <a  type="button" class="btn newMsg" href="text" data-toggle="modal" data-target="#newVoteModal">
+            create new vote
+          </a>
+        </div>
+    
       </tr>
 
     </thead>
@@ -32,9 +37,9 @@
             </span>
           </p>
           <p>
-            {{vote.checkBoxVote}}
+            <!-- {{vote.checkBoxVote}} -->
             <span  ng-repeat="voteCheckBoxVote in vote.checkBoxVote ">
-              <input type="checkbox" ng-model="$parent.voteC" value="{{voteCheckBoxVote}}">{{voteCheckBoxVote}}
+              <input type="checkbox" ng-model="voteC" value="{{voteCheckBoxVote}}">{{voteCheckBoxVote}}
             </span>
           </p>
 
@@ -46,6 +51,58 @@
 
 
 
-</div>
+</div>       <!-- <div class="container"></div> -->
+
+
+
+
+<!-- The Modal, New Message-->
+<div class="modal" id="newVoteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Create New Vote</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="modal-body" >
+        <!-- Begin of Modal body -->
+        <div class="container mt-5">
+          <form>
+            <div class="form-group row">
+              <label for="title" class="col-sm-3 col-form-label">Title</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="title" ng-model="vtitle">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="description" class="col-sm-3 col-form-label">Description</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="description" ng-model="vdescription">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="endDate" class="col-sm-3 col-form-label">End Date</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="endDate" ng-model="endDate">
+              </div>
+            </div>
+          </form>
+        </div> <!-- End of container -->
+
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn " data-dismiss="modal" ng-click="saveNewVote()">Save</button>
+          <button type="button" class="btn " data-dismiss="modal">Discard</button>
+        </div>
+
+      </div> <!-- End of Modal body -->
+    </div> <!-- modal-content  -->
+  </div> <!-- modal-dialog -->
+</div> <!--  The Modal, New Message -->
+
 
 

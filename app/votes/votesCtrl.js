@@ -16,6 +16,34 @@ app.controller("votesCtrl", function ($scope, $http, votes, user, $location) {
         return utype;
     }
 
+    // var updateOrSave = "save";
+    // $scope.priority = "Important";
+    // var msgToUpdate;
+    $scope.saveNewVote = function () {
+        // if (updateOrSave == "save")
+        // {
+            votes.createVote($scope.vtitle, $scope.vdescription, $scope.endDate
+                ).then(function () {
+                $location.path("/votes")
+            }, function (err) {
+                console.log(err);
+            })
+    
+        // }else{
+        //     messages.updateMessage($scope.title, $scope.description, $scope.priority,
+        //         $scope.comments, $scope.imgUrl, msgToUpdate).then(function () {
+        //         $location.path("/messages")
+        //     }, function (err) {
+        //         console.log(err);
+        //     })
+        // }
+        // updateOrSave = "save";
+        // $scope.title = "";
+        // $scope.description = "";
+        // $scope.comments = "";
+        // $scope.imgUrl = "";
+        
+    }
 
 
 

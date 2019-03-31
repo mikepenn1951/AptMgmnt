@@ -41,12 +41,34 @@ app.factory("votes", function ($q, $http, user) {
         return async.promise;
     }
 
+    function createVote(title, description, endDate) {
+        var async = $q.defer();
+
+        var userId = user.getActiveUser().id;
+
+        var newVote = new Vote({
+            id: -1, shortDescr: title, detailDescr: description,
+            endDate: endDate, 
+            userId: userId
+        });
+
+        // if working with real server:
+        //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newRecipe).then.....
+
+        // fix date
+        // newMessage.date = getDateFormat();
+        votes.push(newVote);
+        async.resolve(newVote);
+
+        return async.promise;
+    }
 
 
 
 
     return {
         getVotes: getVotes,
+        createVote: createVote,
     }
 
 })
